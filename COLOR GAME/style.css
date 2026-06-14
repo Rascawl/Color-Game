@@ -19,6 +19,12 @@ body {
     perspective: 800px;
 }
 
+.app{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
 .container{
     padding: 50px;
     display: flex;
@@ -52,6 +58,62 @@ body {
     transform-style: preserve-3d;
     transition: all 2s ease;
     transform: rotateX(0deg) rotateY(0deg);
+}
+
+.tracker{
+    width: 280px;
+    max-height: 72vh;
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,200,80,0.12);
+    color: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tracker h3{
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    text-align: center;
+    color: rgba(255,200,80,0.95);
+}
+
+.history{
+    overflow-y: auto;
+    max-height: calc(72vh - 56px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 6px;
+}
+
+.roll-entry{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.swatch{
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    border: 3px solid rgba(0,0,0,0.35);
+    box-sizing: border-box;
+}
+
+.label{
+    color: #fff;
+    font-size: 14px;
+}
+
+.winner{
+    box-shadow: 0 0 12px rgba(255,200,80,0.9);
+    transform: scale(1.06);
+    transition: transform 250ms ease, box-shadow 250ms ease;
 }
 
 .face{

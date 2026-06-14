@@ -76,13 +76,10 @@ function addRollToHistory(i1, i2){
     sw1.classList.add('winner');
     sw2.classList.add('winner');
 
-    const label = document.createElement('div');
-    label.className = 'label';
-    label.textContent = faces[i1].color + ' & ' + faces[i2].color;
+    
 
     entry.appendChild(sw1);
     entry.appendChild(sw2);
-    entry.appendChild(label);
 
     historyEl.insertBefore(entry, historyEl.firstChild);
 

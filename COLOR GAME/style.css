@@ -61,7 +61,8 @@ body {
 }
 
 .tracker{
-    width: 280px;
+    width: fit-content;
+    max-width: 280px;
     max-height: 72vh;
     background: rgba(255,255,255,0.04);
     border: 2px solid rgba(255,200,80,0.12);
@@ -69,6 +70,7 @@ body {
     padding: 16px;
     border-radius: 12px;
     overflow: hidden;
+    transform: translateY(-8vh);
 }
 
 .tracker h3{
@@ -83,6 +85,7 @@ body {
     max-height: calc(72vh - 56px);
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
     padding-right: 6px;
 }
@@ -95,6 +98,7 @@ body {
     border-radius: 8px;
     background: rgba(0,0,0,0.15);
     border: 1px solid rgba(255,255,255,0.03);
+
 }
 
 .swatch{
@@ -105,10 +109,7 @@ body {
     box-sizing: border-box;
 }
 
-.label{
-    color: #fff;
-    font-size: 14px;
-}
+
 
 .winner{
     box-shadow: 0 0 12px rgba(255,200,80,0.9);

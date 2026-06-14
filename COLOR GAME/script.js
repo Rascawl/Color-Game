@@ -10,6 +10,7 @@ const faces = [
 const die1 = document.getElementById("die1");
 const die2 = document.getElementById("die2");
 const rollBtn = document.getElementById("roll");
+const historyEl = document.getElementById('history');
  
 let isRolling = false;
  
@@ -44,8 +45,49 @@ function rollDice() {
         console.log("Roll finished!");
         console.log("Die 1: " + faces[result1].color);
         console.log("Die 2: " + faces[result2].color);
+        addRollToHistory(result1, result2);
         
     }, 4000); 
 }
- 
+
+const displayColors = {
+    red: 'red',
+    green: 'green',
+    yellow: 'yellow',
+    blue: 'blue',
+    white: '#ffffff',
+    pink: 'rgb(224,19,163)'
+};
+
+function addRollToHistory(i1, i2){
+    if(!historyEl) return;
+    const entry = document.createElement('div');
+    entry.className = 'roll-entry';
+
+    const sw1 = document.createElement('div');
+    sw1.className = 'swatch';
+    sw1.style.backgroundColor = displayColors[faces[i1].color] || faces[i1].color;
+
+    const sw2 = document.createElement('div');
+    sw2.className = 'swatch';
+    sw2.style.backgroundColor = displayColors[faces[i2].color] || faces[i2].color;
+
+    // Both faces that appear are considered "winners" for this roll
+    sw1.classList.add('winner');
+    sw2.classList.add('winner');
+
+    const label = document.createElement('div');
+    label.className = 'label';
+    label.textContent = faces[i1].color + ' & ' + faces[i2].color;
+
+    entry.appendChild(sw1);
+    entry.appendChild(sw2);
+    entry.appendChild(label);
+
+    historyEl.insertBefore(entry, historyEl.firstChild);
+
+    while(historyEl.children.length > 4){
+        historyEl.removeChild(historyEl.lastChild);
+    }
+}
 rollBtn.addEventListener("click", rollDice);
